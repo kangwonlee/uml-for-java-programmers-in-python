@@ -40,3 +40,31 @@ def test_TreeNode_select_sub_node(ThreeTreeNodes):
         result_raise = top.selectSubNode(0)
     except AssertionError:
         pass
+
+
+def test_TreeNode_find_less_exists(ThreeTreeNodes):
+    top = ThreeTreeNodes
+
+    result_node_less = top.find(-1)
+    assert result_node_less == top.nodes[top.LESS].itsValue, result_node_less
+
+
+def test_TreeNode_find_greater_exists(ThreeTreeNodes):
+    top = ThreeTreeNodes
+
+    result_node_greater = top.find(1)
+    assert result_node_greater == top.nodes[top.GREATER].itsValue, result_node_greater
+
+
+def test_TreeNode_find_less_doesnt_exist(ThreeTreeNodes):
+    top = ThreeTreeNodes
+
+    result_node_less_none = top.find(-2)
+    assert result_node_less_none is None, result_node_less_none
+
+
+def test_TreeNode_find_greater_doesnt_exist(ThreeTreeNodes):
+    top = ThreeTreeNodes
+
+    result_node_greater_none = top.find(2)
+    assert result_node_greater_none is None, result_node_greater_none
