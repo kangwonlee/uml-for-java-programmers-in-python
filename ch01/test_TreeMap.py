@@ -159,3 +159,17 @@ def test_TreeMap_get_greater_exists(three_node_tree):
 
     result_value_greater = top.get(1)
     assert result_value_greater == top.topNode.nodes[top.topNode.GREATER].itsValue, result_value_greater
+
+
+def test_TreeMap_get_less_doesnt_exist(three_node_tree):
+    top = three_node_tree
+
+    result_value_less_none = top.get(-2)
+    assert result_value_less_none is None, result_value_less_none
+
+
+def test_TreeMap_get_greater_doesnt_exist(three_node_tree):
+    top = three_node_tree
+
+    result_value_greater_none = top.get(2)
+    assert result_value_greater_none is None, result_value_greater_none
