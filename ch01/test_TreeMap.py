@@ -173,3 +173,51 @@ def test_TreeMap_get_greater_doesnt_exist(three_node_tree):
 
     result_value_greater_none = top.get(2)
     assert result_value_greater_none is None, result_value_greater_none
+
+
+def test_TreeMap_add_less_minus_2(three_node_tree):
+    top = three_node_tree
+
+    # method under test
+    top.add(-2, '-2')
+
+    result = top.get(-2)
+
+    assert '-2' == result, result
+    assert '-2' == top.topNode.nodes[top.topNode.LESS].nodes[top.topNode.LESS].itsValue
+
+
+def test_TreeMap_add_less_minus_05(three_node_tree):
+    top = three_node_tree
+
+    # method under test
+    top.add(-0.5, '-0.5')
+
+    result = top.get(-0.5)
+
+    assert '-0.5' == result, result
+    assert '-0.5' == top.topNode.nodes[top.topNode.LESS].nodes[top.topNode.GREATER].itsValue
+
+
+def test_TreeMap_add_more_plus_05(three_node_tree):
+    top = three_node_tree
+
+    # method under test
+    top.add(0.5, '0.5')
+
+    result = top.get(0.5)
+
+    assert '0.5' == result, result
+    assert '0.5' == top.topNode.nodes[top.topNode.GREATER].nodes[top.topNode.LESS].itsValue
+
+
+def test_TreeMap_add_more_plus_2(three_node_tree):
+    top = three_node_tree
+
+    # method under test
+    top.add(2, '2')
+
+    result = top.get(2)
+
+    assert '2' == result, result
+    assert '2' == top.topNode.nodes[top.topNode.GREATER].nodes[top.topNode.GREATER].itsValue
