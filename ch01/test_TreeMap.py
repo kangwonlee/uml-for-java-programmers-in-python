@@ -5,7 +5,11 @@ import TreeMap
 
 @pytest.fixture
 def TreeNode():
-    return TreeMap.TreeNode('key', 'value')
+    tree = TreeMap.TreeNode('key', 'value')
+
+    yield tree
+
+    del tree
 
 
 def test_TreeNode_constructor(TreeNode):
@@ -25,7 +29,9 @@ def ThreeTreeNodes(TreeNode):
     top.nodes[top.LESS] = TreeMap.TreeNode(-1, 'less')
     top.nodes[top.GREATER] = TreeMap.TreeNode(1, 'greater')
 
-    return top
+    yield top
+
+    del top
 
 
 def test_TreeNode_select_sub_node(ThreeTreeNodes):
