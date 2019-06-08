@@ -2,6 +2,9 @@ class TreeMap(object):
     def __init__(self):
         self.topNode = None
 
+    def __del__(self):
+        del self.topNode
+
     def add(self, key, value):
         if self.topNode is None:
             self.topNode = TreeNode(key, value)
