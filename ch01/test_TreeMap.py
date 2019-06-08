@@ -79,6 +79,7 @@ def test_TreeNode_add_less_minus_2(ThreeTreeNodes):
     result = top.find(-2)
 
     assert '-2' == result, result
+    assert '-2' == top.nodes[top.LESS].nodes[top.LESS].itsValue
 
 
 def test_TreeNode_add_less_minus_05(ThreeTreeNodes):
@@ -90,3 +91,4 @@ def test_TreeNode_add_less_minus_05(ThreeTreeNodes):
     result = top.find(-0.5)
 
     assert '-0.5' == result, result
+    assert '-0.5' == top.nodes[top.LESS].nodes[top.GREATER].itsValue
