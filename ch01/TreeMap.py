@@ -39,3 +39,15 @@ class TreeNode(object):
             result = self.nodes[node].find(key)
 
         return result
+
+    def add(self, key, value):
+        if key == self.itsKey:
+            self.itsValue = value
+        else:
+            self.addSubNode(self.selectSubNode(key), key, value)
+
+    def addSubNode(self, node, key, value):
+        if self.nodes[node] is None:
+            self.nodes[node] = TreeNode(key, value)
+        else:
+            self.nodes[node].add(key, value)
