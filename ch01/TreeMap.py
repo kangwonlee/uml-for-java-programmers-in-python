@@ -1,3 +1,21 @@
+class TreeMap(object):
+    def __init__(self):
+        self.topNode = None
+
+    def add(self, key, value):
+        if self.topNode is None:
+            self.topNode = TreeNode(key, value)
+        else:
+            self.topNode.add(key, value)
+
+    def get(self, key):
+        if self.topNode is None:
+            result = None
+        else:
+            result = self.topNode.find(key)
+        return result
+
+
 class TreeNode(object):
     LESS = 0
     GREATER = 1
