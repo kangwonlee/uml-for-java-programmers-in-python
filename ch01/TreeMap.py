@@ -15,3 +15,19 @@ class TreeNode(object):
             assert key != self.itsKey, f"repr(key) = {repr(key)}, repr(self.itsKey) = {repr(self.itsKey)}"
         
         return result
+
+    def find(self, key):
+        if key == self.itsKey:
+            result = self.itsValue
+        else:
+            result = self.findSubNodeForKey(self.selectSubNode(key), key)
+
+        return result
+
+    def findSubNodeForKey(self, node, key):
+        if self.nodes[node] is None:
+            result = None
+        else:
+            result = self.nodes[node].find(key)
+
+        return result
