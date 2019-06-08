@@ -68,3 +68,25 @@ def test_TreeNode_find_greater_doesnt_exist(ThreeTreeNodes):
 
     result_node_greater_none = top.find(2)
     assert result_node_greater_none is None, result_node_greater_none
+
+
+def test_TreeNode_add_less_minus_2(ThreeTreeNodes):
+    top = ThreeTreeNodes
+
+    # method under test
+    top.add(-2, '-2')
+
+    result = top.find(-2)
+
+    assert '-2' == result, result
+
+
+def test_TreeNode_add_less_minus_05(ThreeTreeNodes):
+    top = ThreeTreeNodes
+
+    # method under test
+    top.add(-0.5, '-0.5')
+
+    result = top.find(-0.5)
+
+    assert '-0.5' == result, result
