@@ -18,6 +18,9 @@ class TreeMap(object):
             result = self.topNode.find(key)
         return result
 
+    def __getitem__(self, key):
+        return self.get(key)
+
 
 class TreeNode(object):
     LESS = 0
@@ -52,6 +55,9 @@ class TreeNode(object):
             result = self.findSubNodeForKey(self.selectSubNode(key), key)
 
         return result
+
+    def __getitem__(self, key):
+        return self.find(key)
 
     def findSubNodeForKey(self, node, key):
         if self.nodes[node] is None:
