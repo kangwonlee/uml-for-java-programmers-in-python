@@ -98,3 +98,27 @@ def test_TreeNode_add_less_minus_05(ThreeTreeNodes):
 
     assert '-0.5' == result, result
     assert '-0.5' == top.nodes[top.LESS].nodes[top.GREATER].itsValue
+
+
+def test_TreeNode_add_more_plus_05(ThreeTreeNodes):
+    top = ThreeTreeNodes
+
+    # method under test
+    top.add(0.5, '0.5')
+
+    result = top.find(0.5)
+
+    assert '0.5' == result, result
+    assert '0.5' == top.nodes[top.GREATER].nodes[top.LESS].itsValue
+
+
+def test_TreeNode_add_more_plus_2(ThreeTreeNodes):
+    top = ThreeTreeNodes
+
+    # method under test
+    top.add(2, '2')
+
+    result = top.find(2)
+
+    assert '2' == result, result
+    assert '2' == top.nodes[top.GREATER].nodes[top.GREATER].itsValue
