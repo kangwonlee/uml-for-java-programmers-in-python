@@ -1,6 +1,7 @@
 class TreeNode(object):
     LESS = 0
     GREATER = 1
+
     def __init__(self, key, value):
         self.itsKey = key
         self.itsValue = value
@@ -19,7 +20,7 @@ class TreeNode(object):
             result = self.GREATER
         else:
             assert key != self.itsKey, f"repr(key) = {repr(key)}, repr(self.itsKey) = {repr(self.itsKey)}"
-        
+
         return result
 
     def find(self, key):
