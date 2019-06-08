@@ -145,3 +145,17 @@ def three_node_tree(ThreeTreeNodes):
     yield tree
 
     del tree
+
+
+def test_TreeMap_get_less_exists(three_node_tree):
+    top = three_node_tree
+
+    result_value_less = top.get(-1)
+    assert result_value_less == top.topNode.nodes[top.topNode.LESS].itsValue, result_value_less
+
+
+def test_TreeMap_get_greater_exists(three_node_tree):
+    top = three_node_tree
+
+    result_value_greater = top.get(1)
+    assert result_value_greater == top.topNode.nodes[top.topNode.GREATER].itsValue, result_value_greater
