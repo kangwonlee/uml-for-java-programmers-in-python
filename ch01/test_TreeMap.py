@@ -135,3 +135,13 @@ def treemap_tree():
 
 def test_TreeMap_constructor(treemap_tree):
     assert isinstance(treemap_tree, TreeMap.TreeMap)
+
+
+@pytest.fixture
+def three_node_tree(ThreeTreeNodes):
+    tree = TreeMap.TreeMap()
+    tree.topNode = ThreeTreeNodes
+
+    yield tree
+
+    del tree
