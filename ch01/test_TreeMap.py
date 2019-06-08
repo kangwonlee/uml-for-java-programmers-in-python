@@ -18,11 +18,18 @@ def test_TreeNode_constructor(TreeNode):
     assert result.nodes[result.GREATER] is None
 
 
-def test_TreeNode_select_sub_node(TreeNode):
+@pytest.fixture
+def ThreeTreeNodes(TreeNode):
     top = TreeNode
     top.itsKey = 0
     top.nodes[top.LESS] = TreeMap.TreeNode(-1, 'less')
     top.nodes[top.GREATER] = TreeMap.TreeNode(1, 'greater')
+
+    return top
+
+
+def test_TreeNode_select_sub_node(ThreeTreeNodes):
+    top = ThreeTreeNodes
 
     result_index_less = top.selectSubNode(-1)
     assert top.LESS == result_index_less, result_index_less
