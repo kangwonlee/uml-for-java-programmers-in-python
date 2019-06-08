@@ -6,6 +6,12 @@ class TreeNode(object):
         self.itsValue = value
         self.nodes = [None, None]
 
+    def __del__(self):
+        for node in self.nodes:
+            if node is not None:
+                del node
+        # TODO : what if circular reference happens?
+
     def selectSubNode(self, key):
         if key < self.itsKey:
             result = self.LESS
