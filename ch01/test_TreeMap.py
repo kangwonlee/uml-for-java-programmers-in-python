@@ -1,8 +1,15 @@
+import pytest
+
 import TreeMap
 
 
-def test_TreeNode_constructor():
-    result = TreeMap.TreeNode('key', 'value')
+@pytest.fixture
+def TreeNode():
+    return TreeMap.TreeNode('key', 'value')
+
+
+def test_TreeNode_constructor(TreeNode):
+    result = TreeNode
 
     assert isinstance(result, TreeMap.TreeNode), type(result)
     assert 'key' == result.itsKey, result.itsKey
