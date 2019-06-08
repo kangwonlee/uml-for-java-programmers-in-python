@@ -122,3 +122,16 @@ def test_TreeNode_add_more_plus_2(ThreeTreeNodes):
 
     assert '2' == result, result
     assert '2' == top.nodes[top.GREATER].nodes[top.GREATER].itsValue
+
+
+@pytest.fixture
+def treemap_tree():
+    tree = TreeMap.TreeMap()
+
+    yield tree
+
+    del tree
+
+
+def test_TreeMap_constructor(treemap_tree):
+    assert isinstance(treemap_tree, TreeMap.TreeMap)
