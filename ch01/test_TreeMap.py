@@ -37,7 +37,7 @@ def test_TreeNode_select_sub_node(ThreeTreeNodes):
     assert top.GREATER == result_index_greater, result_index_greater
 
     try:
-        result_raise = top.selectSubNode(0)
+        _ = top.selectSubNode(0)
     except AssertionError:
         pass
 
